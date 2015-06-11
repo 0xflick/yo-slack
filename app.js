@@ -2,7 +2,7 @@ const express = require('express');
 const request = require('request');
 const bodyParser = require('body-parser');
 const app = express();
-let settings;
+var settings;
 
 
 // try to import settings, use defaults otherwise
@@ -10,6 +10,7 @@ try {
   settings = require('./settings.json');
 } catch(e) {
   // use defaults
+  console.log(e);
   settings = {
     'slackToken': '',
     'yoApiKey': '',
@@ -26,7 +27,7 @@ const verify = function(req) {
   return (settings.slackToken === req.body.token);
 };
 
-app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 app.get('/', function(req, res) {
   res.send('Hello World!');
 });
