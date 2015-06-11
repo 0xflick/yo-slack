@@ -1,0 +1,28 @@
+{
+  "name": "yo-slack",
+  "version": "0.1.0",
+  "description": "yo interface for slack webhooks",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexflk/yo-slack.git"
+  },
+  "keywords": [
+    "yo",
+    "slack",
+    "webhook"
+  ],
+  "author": "Alex Flick",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/alexflk/yo-slack/issues"
+  },
+  "homepage": "https://github.com/alexflk/yo-slack#readme",
+  "dependencies": {
+    "express": "^4.12.4",
+    "request": "^2.57.0"
+  }
+}
