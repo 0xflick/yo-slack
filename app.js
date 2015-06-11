@@ -1,7 +1,8 @@
 const express = require('express');
 const request = require('request');
+const bodyParser = require('body-parser');
 const app = express();
-var settings;
+let settings;
 
 
 // try to import settings, use defaults otherwise
@@ -22,15 +23,16 @@ const yoRequest = {
 };
 
 const verify = function(req) {
-  return (settings.slackToken === req.query.token);
+  return (settings.slackToken === req.body.token);
 };
 
+app.use(bodyParser.json());
 app.get('/', function(req, res) {
   res.send('Hello World!');
 });
 
 app.post('/', function(req, res) {
-  if(!verify(req)) {
+  if (!verify(req)) {
     console.log('Unauthorized access attempt from %s', req.ip);
     res.status(403).send('Invalid token');
   } else {
